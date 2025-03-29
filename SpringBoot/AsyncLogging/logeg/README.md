@@ -63,3 +63,11 @@ The asynchronous logging setup can handle spikes in logging activity without deg
 Resource Optimization:
 
 By offloading logging to a separate thread
+
+
+### Links
+- https://grobmeier.solutions/log4j-2-performance-close-to-insane-20072013.html#.UzwywI9Bow4
+- https://betterstack.com/community/guides/logging/how-to-start-logging-with-log4j/
+
+
+should we add The log4j-slf4j-impl dependency bridges SLF4J to Log4j2.?
