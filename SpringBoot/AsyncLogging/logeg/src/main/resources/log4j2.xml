@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN" monitorInterval="30">
+
+    <Properties>
+        <Property name="LOG_PATTERN">%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %highlight{%-5level} [%F:%L] %logger{36} - %msg%n</Property>
+        <Property name="LOG_PATH">logs/app.log</Property>
+        <Property name="LOG_ARCHIVE">logs/app-%d{yyyy-MM-dd}.log.gz</Property>
+    </Properties>
+
+    <Appenders>
+        <!-- Console Appender for Real-Time Logs -->
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="${LOG_PATTERN}" />
+        </Console>
+
+        <!-- High-Performance Rolling File Appender (Random Access) -->
+        <RollingRandomAccessFile name="RollingFile" fileName="${LOG_PATH}"
+                                 filePattern="${LOG_ARCHIVE}">
+            <PatternLayout pattern="${LOG_PATTERN}" />
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+                <SizeBasedTriggeringPolicy size="10MB"/>
+            </Policies>
+        </RollingRandomAccessFile>
+    </Appenders>
+
+    <Loggers>
+        <!-- Async Root Logger (Uses LMAX Disruptor for Performance) -->
+        <AsyncRoot level="info" includeLocation="true">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="RollingFile"/>
+        </AsyncRoot>
+    </Loggers>
+
+</Configuration>
