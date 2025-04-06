@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package com.aadi.protobuf_demo.proto;
+
+option java_multiple_files = true;
+option java_package = "com.aadi.protobuf_demo.proto";
+option java_outer_classname = "EmployeeProto";
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/empty.proto";
+
+message Employee {
+    int32 id = 1;
+    string name = 2;
+    double salary = 3;
+    repeated Department departments = 4;
+    map<string, string> addressMap = 5;
+    bool isActive = 6;
+    bytes profilePicture = 7;
+    google.protobuf.Timestamp joinDate = 8;
+}
+
+message Department {
+    int32 id = 1;
+    string name = 2;
+}
+
+// message EmployeeRequest {
+//     int32 id = 1;
+// }
+
+message EmployeeList {
+    repeated Employee employees = 1;
+}
+
+
+service EmployeeService {
+    rpc getEmployee (Employee) returns (Employee);
+    rpc addEmployee (Employee) returns (Employee);
+    rpc getAllEmployees (google.protobuf.Empty) returns (EmployeeList);
+}

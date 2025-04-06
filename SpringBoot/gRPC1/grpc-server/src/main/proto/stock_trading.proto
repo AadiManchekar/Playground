@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package stocktrading;
+
+option java_multiple_files = true;
+option java_package = "com.aadi.stocktrading";
+option java_outer_classname = "StockTradingProto";
+
+
+
+service StockTradingService {
+    // UNARY RPC to get the stock price for a given stock symbol
+    rpc getStockPrice (StockRequest) returns (StockResponse) {}
+}
+
+message StockRequest {
+    string stock_symbol = 1;
+}
+
+message StockResponse {
+    string stock_symbol = 1;
+    double price = 2;
+    string timestamp = 3;
+}
