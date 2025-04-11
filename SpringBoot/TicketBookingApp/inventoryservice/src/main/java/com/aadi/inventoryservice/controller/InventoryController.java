@@ -22,4 +22,5 @@ public class InventoryController {
     @GetMapping("/inventory/events")
     public List<EventInventoryResponse> inventoryGetAllEvents() {
         return inventoryService.getAllEvents();
+    }
 }
