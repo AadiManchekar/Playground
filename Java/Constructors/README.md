@@ -123,3 +123,17 @@ In Person class...
 In Employee class...
 */
 ```
+
+### Copy constructor 
+- Copy Constructor is the constructor used when we want to initialize the value to the new object from the old object of the same class. 
+```Java
+public class Employee {
+    int age;
+    String name;
+
+    Employee(Employee emp) {
+        this.age = emp.age;
+        this.name = emp.name;
+    }
+}
+```
