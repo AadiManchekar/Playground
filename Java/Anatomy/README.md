@@ -1,6 +1,8 @@
 ### Anatomy
-1. Java adheres to **“write once, run anywhere” philosophy**. You write code in `.java` file and with help of compiler (javac) you compile it to `.class` file (which is basically bytecode). 
-2. Now you can feed this .class to any JVM. (Note that **jvm is platform dependent**, whereas when the `.class` **(Bytecode) is platform independent**, Hence the philosophy “write once, run anywhere”).
+1. Java is high-level programming language
+2. Java is not a completely object-oriented programming language because it has the support of primitive data types like int, float, char, boolean, double, etc.
+3. Java adheres to **“write once, run anywhere” philosophy**. You write code in `.java` file and with help of compiler (javac) you compile it to `.class` file (which is basically bytecode). 
+4. Now you can feed this .class to any JVM. (Note that **jvm is platform dependent**, whereas when the `.class` **(Bytecode) is platform independent**, Hence the philosophy “write once, run anywhere”).
 
 ![Java Compilation Flow](image.png)
 
