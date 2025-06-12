@@ -1,0 +1,1 @@
+https://www.javaguides.net/2018/02/single-responsibility-principle.html
