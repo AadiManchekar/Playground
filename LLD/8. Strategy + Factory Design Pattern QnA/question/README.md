@@ -1,0 +1,4 @@
+- Refactor the code
+- If we add any new service like WhatsappService or SpeedPostService it will violate Open/Closed Principle
+- User should have notificationType set and it shouldnt come from AppConfig
+- Currrent code doesnt follow Single Responsibility and Dependency Inversion Principle
