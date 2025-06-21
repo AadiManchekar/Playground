@@ -59,3 +59,13 @@ sportsVehicle.drive();    // Output: Sports drive capability
 passengerVehicle.drive(); // Output: Normal drive capability
 offRoadVehicle.drive();   // Output: Sports drive capability
 ```
+
+---
+
+### Best Explanation
+- The behavior of a class needs to change dynamically at runtime.
+- You want to avoid cluttering your code with conditional logic (like if-else or switch statements) for every variation.
+- Easy plug-and-play behavior at runtime
+- A design that is open for extension, but closed for modification
+- Whenever you see Open/Closed Principle getting violated, try using Strategy Pattern. They both go hand in hand.
+- https://blog.algomaster.io/p/9c9932d8-80ad-4848-bf28-d6e01892a011
