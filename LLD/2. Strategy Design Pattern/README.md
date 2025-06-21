@@ -69,3 +69,4 @@ offRoadVehicle.drive();   // Output: Sports drive capability
 - A design that is open for extension, but closed for modification
 - Whenever you see Open/Closed Principle getting violated, try using Strategy Pattern. They both go hand in hand.
 - https://blog.algomaster.io/p/9c9932d8-80ad-4848-bf28-d6e01892a011
+- https://youtu.be/E9-4uaoncVY?si=A61vzX_3fG8LMcPz
