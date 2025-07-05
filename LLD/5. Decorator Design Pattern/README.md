@@ -66,9 +66,47 @@ This project demonstrates the Decorator Pattern using a pizza ordering system, w
   System.out.println("pizza3 cost: " + pizza3.cost()); // 230
   ```
 
+---
+
+## Why Does `CondimentDecorator` Extend `Beverage`? (Decorator Pattern Deep Dive)
+
+In the Decorator Pattern, the abstract class `CondimentDecorator` extends `Beverage` for several important reasons:
+
+### 1. **Interface Compatibility**
+By extending `Beverage`, `CondimentDecorator` ensures that all decorators (like `Mocha`, `Milk`, etc.) have the same interface as the objects they decorate. This allows decorators to be used anywhere a `Beverage` is expected.
+
+```java
+public abstract class CondimentDecorator extends Beverage {
+    protected Beverage beverage;
+    public abstract String getDescription();
+}
+```
+
+### 2. **Recursive Composition**
+Decorators can wrap other decorators or base beverages, enabling flexible and dynamic combinations:
+
+```java
+Beverage order = new Mocha(new Milk(new DarkRoast()));
+```
+Each decorator "is a" `Beverage` and can wrap another `Beverage`, forming a chain.
+
+### 3. **Polymorphism**
+Client code can treat decorated and undecorated objects uniformly. All objects respond to the same methods (`cost()`, `getDescription()`), regardless of how many decorators are applied.
+
+### 4. **Open/Closed Principle**
+You can add new functionality (like new condiments) without modifying existing code, simply by creating new decorators that extend `CondimentDecorator`.
+
+**TLDR:**  
+`CondimentDecorator` extends `Beverage` to maintain a consistent interface, enable recursive wrapping, support polymorphism, and adhere to the Open/Closed Principle. This is the foundation that makes the Decorator Pattern powerful
+
+---
+
 ### Summary
 
 - The Decorator Pattern allows you to add toppings (decorators) to pizzas (components) at runtime.
 - Each topping wraps the pizza and adds its own cost, demonstrating dynamic behavior addition without modifying existing pizza classes.
-
+- Decorator pattern is perfect example of Open/Closed principles
+- Decorators have the same supertype as the objects they decorate.
+- **The decorator adds its own behavior before and/or after delegating to the object it decorates to do the rest of the job.**
+- If we rely on inheritance, then our behavior can only be determined statically at compile time. With composition, we can mix and match decorators any way we like...at runtime. Hence we use composition in Decorator class
 ---
