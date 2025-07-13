@@ -19,6 +19,8 @@
 
 * Inheritance is the mechanism that allows one class to acquire all the properties from another class by inheriting the class.
 * `public class Car extends Vehicle` When we extend a class, we form an **IS-A relationship**. The Car IS-A Vehicle. So, it has all the characteristics of a Vehicle.
+* The thing that stops a class from being subclassed is the keyword modifier final. A final class means that it’s the end of the inheritance line. Nobody, ever, can extend a final class.
+* if a class has only private constructors, it can’t be subclassed.
 * Java supports:
 
   * **Single inheritance**: `Class A -> Class B` \[Here, A is a parent class to B], Calling `super();` in class B calls constructor of A. 
@@ -72,6 +74,7 @@ Rules in multiple inheritance with interfaces and default methods:
 * Poly means **Many** and Morphism means **Form**.
 * A same method behaves differently in different situations.
 * Method overloads in Java are only **allowed** for **methods with different signatures (parameters)**.
+* With polymorphism, you can write code that doesn’t have to change when you introduce new subclass types into the program.
 * You **cannot** do method overloading with **different return type**:
 
 ```java
@@ -105,6 +108,18 @@ Java provides four access modifiers to set access levels for classes, variables,
 - Private: can be access by methods only in same class
 - Protected: can be access by other methods in same package or other sub-classes in different package
 - Default: if we dont mention anything, then Default access specifier is used in java. It can only be access by methods in same package
+
+---
+
+## Are you using Inheritance or Abusing it?
+- Do use inheritance when you have a clear **IS-A** relationship.
+- DO consider inheritance when you have behavior (implemented code) that should be shared among multiple classes of the same general type.
+- Example: `public class Dog extends Animal` is a good use of inheritance because a Dog IS-A Animal.
+- Be aware, however, that while inheritance is one of the key features of object-oriented programming, it’s not necessarily the best way to achieve behavior reuse. 
+- Do Not use inheritance when you have a **HAS-A** relationship. Use composition instead.
+- DO NOT use inheritance just so that you can reuse code from another class
+
+
 
 ---
 
