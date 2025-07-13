@@ -1,11 +1,32 @@
 ### Anatomy
 1. Java is high-level programming language
 2. Java is not a completely object-oriented programming language because it has the support of primitive data types like int, float, char, boolean, double, etc.
-3. Java is both a **statically-typed and strongly-typed language**:
+3. Primitive vs Non-primitive types:
+    - **Primitive Types**: These are the basic data types provided by Java. They store the actual values directly in memory.
+    - **Non-Primitive Types**: These are more complex data structures that store references to objects in memory, rather than the actual data itself.
+
+    In Java, there are two categories of data types:
+    1. **Primitive Types**: These include `int`, `float`, `char`, `boolean`, etc. They store their values directly in memory.
+    2. **Non-Primitive Types**: These include `String`, arrays, and user-defined classes. They store a reference (or address) to the actual data in memory.
+
+    Example:
+    - Primitive Type: `int x = 5;` — Here, `x` directly holds the value `5`.
+    - Non-Primitive Type: `String str = "Hello";` — Here, `str` holds a reference to the string object "Hello" stored elsewhere in memory.
+
+    In summary:
+    - **Primitive Types**: Store actual values directly in memory.
+    - **Non-Primitive Types**: Store references to objects, which are located elsewhere in memory.
+
+    Corner case:
+    - **String**: In Java, `String` is a non-primitive type
+    - **int[] nums**: In Java, `int[]` is also a non-primitive type (array). An array in Java is an object that holds a fixed-size sequence of elements of the same type. When you declare `int[] nums`, you are creating a reference to an array object that can hold integers, but the actual array is stored in the heap memory. Although it looks like a primitive type, it is indeed a non-primitive type because in memory, it holds a reference to the array object rather than the values themselves.
+
+
+4. Java is both a **statically-typed and strongly-typed language**:
     - **Statically-Typed**: This means that the type of a variable is checked at compile-time, before the program runs. You must explicitly declare the data type of a variable (e.g., int x;, String name;) and it cannot change during runtime. This helps catch type-related errors early in the development cycle.
     - **Strongly-Typed**: This implies strict enforcement of data types, meaning that Java does not allow implicit type conversions between incompatible types (e.g., trying to assign a String to an int directly). If a conversion is needed between different types, it usually requires explicit casting, which makes the code more robust and less prone to unexpected runtime errors.
-3. Java adheres to **“write once, run anywhere” philosophy**. You write code in `.java` file and with help of compiler (javac) you compile it to `.class` file (which is basically bytecode). 
-4. Now you can feed this .class to any JVM. (Note that **jvm is platform dependent**, whereas when the `.class` **(Bytecode) is platform independent**, Hence the philosophy “write once, run anywhere”).
+5. Java adheres to **“write once, run anywhere” philosophy**. You write code in `.java` file and with help of compiler (javac) you compile it to `.class` file (which is basically bytecode).
+6. Now you can feed this .class to any JVM. (Note that **jvm is platform dependent**, whereas when the `.class` **(Bytecode) is platform independent**, Hence the philosophy “write once, run anywhere”).
 
 ![Java Compilation Flow](image.png)
 
@@ -17,15 +38,15 @@
 *Source: [https://stackoverflow.com/a/36394113](https://stackoverflow.com/a/36394113)*
 
 
-3. Code written in Java is:
+7. Code written in Java is:
     - First compiled to bytecode by a compiler (javac) as shown in the left section of the image above; 
     - Then, as shown in the right section of the above image, another program called java starts the Java runtime environment and it may compile and/or interpret the bytecode by using the Java Interpreter/JIT Compiler.
 
-4. JDK, JRE, JVM:
+8. JDK, JRE, JVM:
 
 ![JDK, JRE, JVM](image-2.png)
 
-5. Java compilation types 
+9. Java compilation types 
     - Ahead-of-Time (AOT) Compilation
         - Converts Java bytecode to native machine code before runtime.
         - Faster startup, smaller memory footprint.
@@ -43,7 +64,45 @@
         - No pause in main request flow.
         - Request hits hot code → Executes interpreted version → JIT compiles in background → Future requests use compiled code.
 
-Good read: https://medium.com/@alxkm/how-compilation-works-in-java-0ac4d1e95b99
+    Good read: https://medium.com/@alxkm/how-compilation-works-in-java-0ac4d1e95b99
+    
+
+10. In Java, the variables get default values when they are declared but not initialized. The default values depend on the data type:
+    - **Numeric types** (`byte`, `short`, `int`, `long`, `float`, `double`): Default value is `0` (for integer types) or `0.0` (for floating-point types).
+    - **char**: Default value is `'\u0000'` (the null character).
+    - **boolean**: Default value is `false`.
+    - **Object references** (e.g., `String`, arrays, custom objects): Default value is `null`.
+
+    > **Note:** Default values are assigned only to member variables (fields) of a class. Local variables (declared inside methods) do **not** get default values and must be explicitly initialized before use, otherwise you'll get a compilation error.
+
+    **Example (member variables):**
+    ```Java
+    public class DefaultValues {
+        int myInt;           // Default: 0
+        double myDouble;     // Default: 0.0
+        boolean myBoolean;   // Default: false
+        String myString;     // Default: null
+
+        public static void main(String[] args) {
+            DefaultValues obj = new DefaultValues();
+            System.out.println("Default value of myInt: " + obj.myInt);         // Outputs: 0
+            System.out.println("Default value of myDouble: " + obj.myDouble);   // Outputs: 0.0
+            System.out.println("Default value of myBoolean: " + obj.myBoolean); // Outputs: false
+            System.out.println("Default value of myString: " + obj.myString);   // Outputs: null
+        }
+    }
+    ```
+
+    **Example (local variables):**
+    ```Java
+    public class DefaultValuesError {
+        public static void main(String[] args) {
+            int myInt; // Declared but not initialized
+            System.out.println("Value of myInt: " + myInt); // Compilation error:
+            // "variable myInt might not have been initialized"
+        }
+    }
+    ```
 
 ---
 
@@ -77,7 +136,20 @@ Java has three main editions that cater to different types of application develo
 ### Primitive data types
 
 ```Java
-/*
+    // Note: numeric data types are signed by default, meaning they can hold both positive and negative values.
+
+    /*
+        Byte is 1 byte
+        Byte is signed (which means it has both +ve and -ve value)
+        Range -128 to 127
+        default value 0
+    */
+    byte myByte = 100;
+    System.out.println(myByte); // Outputs: 100
+
+    // ------------------------------------------------------------
+
+    /*
         Char is 2 bytes
         Char is representation of ASCII Values
         Range 0 to 65536
@@ -94,8 +166,8 @@ Java has three main editions that cater to different types of application develo
     // ------------------------------------------------------------
 
     /*
-        shortis 2 bytes
-        shortis signed (which means it has both +ve and -ve value)
+        short is 2 bytes
+        short is signed (which means it has both +ve and -ve value)
         Range -32,768 to 32,767
         default value 0
     */
