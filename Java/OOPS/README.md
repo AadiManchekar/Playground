@@ -119,6 +119,109 @@ Java provides four access modifiers to set access levels for classes, variables,
 - Do Not use inheritance when you have a **HAS-A** relationship. Use composition instead.
 - DO NOT use inheritance just so that you can reuse code from another class
 
+---
+
+## Abstract Classes
+
+- **Abstract Class**: Can have both abstract and concrete methods, instance variables, and constructors. Supports single inheritance (can extend only one class). Cannot be instantiated directly.
+- **When to use Abstract Class**: When you want to provide a common base class with some shared implementation and state, and you expect subclasses to extend it.
+- If you declare an abstract method, you MUST mark the class abstract as well. You can’t have an abstract method in a non-abstract class.
+
+```java
+abstract class Animal {
+    String name; // Instance variable
+    Animal(String name) { // Constructor
+        this.name = name;
+    }
+    abstract void makeSound(); // Abstract method
+    void sleep() { // Concrete method
+        System.out.println("Sleeping...");
+    }
+}
+
+class Dog extends Animal {
+    Dog(String name) {
+        super(name);
+    }
+    void makeSound() { // Implementing abstract method
+        System.out.println("Woof!");
+    }
+}
+```
+
+---
+
+## Object Class (java.lang.Object)
+- Every class in Java extends class Object.
+- **Object Class**: The root class of all classes in Java. Every class is a subclass of the Object class, either directly or indirectly. It provides basic methods like `toString()`, `equals()`, and `hashCode()`.
+- Some of the methods are marked final, which means you can’t override them. You’re encouraged (strongly) to override hashCode(), equals(), and toString() in your own classes.
+- Some of the most important methods in Object are related to threads. 
+  - `wait()`: Causes the current thread to wait until another thread invokes the notify() or notifyAll() method for this object.
+  - `notify()`: Wakes up a single thread that is waiting on this object's monitor.
+  - `notifyAll()`: Wakes up all threads that are waiting on this object's monitor.
+- If Object is the parent of all other classes, then why dont we use it for every return type? 
+  - Because Object is not type-safe. If you return an Object, you have to cast it back to the original type, which can lead to `ClassCastException` at runtime if the object is not of the expected type.
+  - Also, using Object as a return type can lead to less readable and maintainable code, as it obscures the actual type being returned.
+  - You would defeat the whole point of “type-safety,” one of Java’s greatest protection mechanisms for your code. With type-safety, Java guarantees that you won’t ask the wrong object to do something you meant to ask of another object type. Like, ask a Ferrari (which you think is a Toaster) to cook itself.
+  - When objects are referred to by an Object reference type, Java thinks it’s referring to an instance of type Object. And that means the only methods you’re allowed to call on that object are the ones declared in class Object! So if you were to say:
+    ```java
+    class Ferrari {
+        void goFast() {
+            System.out.println("Vroom Vroom!");
+        }
+    }
+
+    class Main {
+        public static void main(String[] args) {
+            Object o = new Ferrari();
+            o.goFast(); // Not legal!
+        }
+    }
+    ```
+  - The compiler will complain that the method goFast() is not defined in class Object.
+  - **The compiler decides whether you can call a method based on the reference type, not the actual object type.**
+  - So, if you want to call methods specific to the Ferrari class, you need to cast the Object reference back to Ferrari:
+    ```java
+    class Main {
+        public static void main(String[] args) {    
+            Object o = new Ferrari();
+            ((Ferrari) o).goFast(); // Legal, but requires casting
+        }
+    }
+
+    // you can also use instanceof to check the type before casting to avoid ClassCastException
+    class Main {
+        public static void main(String[] args) {    
+            Object o = new Ferrari();
+            if (o instanceof Ferrari) {
+                ((Ferrari) o).goFast(); // Safe casting
+            } else {
+                System.out.println("Not a Ferrari!");
+            }
+        }
+    }
+    ```
+
+---
+
+## Interfaces vs Abstract Classes
+- Interfaces are used for broader systems, where the classes that implement it are not necessarily related.
+- Whereas, usually, classes extending an abstract class would be somewhat related.
+- Abstract classes are used when you have a common base class that provides some shared implementation and state.
+- Interfaces only guarantee behavior, and the methods will need to be implemented in the classes implementing them.
+- If the classes share (or could share) some fields and implementation, use an abstract class. If they only share behavior, use an interface.
+- A class can implement multiple interfaces, which provides a workaround for Java's lack of multiple inheritance.
+- https://byjus.com/gate/difference-between-abstract-class-and-interface-in-java/
+- https://harsh05.medium.com/abstract-classes-vs-interfaces-in-java-when-and-how-to-use-them-5ca5d5c825b5
+
+---
+
+## How do you know whether to make a class, a subclass, an abstract class, or an interface?
+- Make a **class** that doesn’t extend anything (other than Object) when your new class doesn’t pass the IS-A test for any other type.
+- Make a **subclass** (in other words, extend a class) only when you need to make a more specific version of a class and need to override or add new behaviors.
+- When you don’t want a class to be instantiated (in other words, you don’t want anyone to make a new object of that class type), mark the class with the **abstract** keyword.
+- Use an **abstract class** when you want to define a template for a group of subclasses, and you have at least some implementation code that all subclasses could use. Make the class abstract when you want to guarantee that nobody can make objects of that type.
+- Use an **interface** when you want to define a role that other classes can play, regardless of where those classes are in the inheritance tree.
 
 
 ---
