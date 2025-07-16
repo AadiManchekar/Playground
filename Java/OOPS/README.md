@@ -19,6 +19,27 @@
 
 * Inheritance is the mechanism that allows one class to acquire all the properties from another class by inheriting the class.
 * `public class Car extends Vehicle` When we extend a class, we form an **IS-A relationship**. The Car IS-A Vehicle. So, it has all the characteristics of a Vehicle.
+* All the constructors in an object’s inheritance tree must run when you make a new object.
+```Java
+class Vehicle {
+    Vehicle() {
+        System.out.println("Vehicle constructor called");
+    }
+}
+class Car extends Vehicle {
+    Car() {
+        System.out.println("Car constructor called");
+    }
+}
+class Main {
+    public static void main(String[] args) {
+        Car myCar = new Car(); 
+        // Output: 
+        // Vehicle constructor called
+        // Car constructor called
+    }
+}
+```
 * The thing that stops a class from being subclassed is the keyword modifier final. A final class means that it’s the end of the inheritance line. Nobody, ever, can extend a final class.
 * if a class has only private constructors, it can’t be subclassed.
 * Java supports:
