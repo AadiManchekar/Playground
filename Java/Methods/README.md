@@ -71,3 +71,57 @@ public class Cat extends Animal {
 }
 
 ```
+
+### Auto-Boxing and Unboxing
+- Auto-boxing is the automatic conversion of primitive types to their corresponding wrapper classes (e.g, `int` to `Integer`).
+- Unboxing is the reverse process, where wrapper classes are converted back to their primitive types.
+- This feature allows for seamless integration between primitive types and their wrapper classes, enabling methods that accept objects to work with primitives.
+```Java
+public class AutoBoxingExample {
+    public static void main(String[] args) {
+        // Auto-boxing
+        Integer num = 5; // int to Integer
+
+        // Unboxing
+        int intPrimitive = num; // Integer to int
+
+        System.out.println("Auto-boxed: " + num); // Auto-boxed: 5
+        System.out.println("Unboxed: " + intPrimitive); // Unboxed: 5
+    }
+}
+```
+- Auto-boxing and unboxing are particularly useful when working with collections like `ArrayList`, which can only store objects.
+```Java
+import java.util.ArrayList;
+
+public class AutoBoxingExample {
+    public static void main(String[] args) {
+        ArrayList<Integer> numbers = new ArrayList<>();
+        // Auto-boxing
+        numbers.add(5); // int to Integer
+
+        // Unboxing
+        int num = numbers.get(0); // Integer to int
+
+        System.out.println("Auto-boxed: " + numbers); // Auto-boxed: [5]
+        System.out.println("Unboxed: " + num); // Unboxed: 5
+    }
+}
+```
+
+### Overloaded operators
+- Java does not support operator overloading like some other languages (e.g., C++).
+- Operators in Java have fixed meanings and cannot be redefined for user-defined types.
+- However, + operator is overloaded for `String` concatenation.
+```Java
+public class OperatorOverloadingExample {
+    public static void main(String[] args) {
+        String str1 = "Hello, ";
+        String str2 = "World!";
+        String result = str1 + str2; // Uses + operator for String concatenation
+        System.out.println(result); // Output: Hello, World!
+    }
+}
+```
+- In the above example, the + operator is overloaded to concatenate two `String` objects,
+- but this is a built-in feature of Java and not true operator overloading as seen in languages that allow custom operator definitions.
