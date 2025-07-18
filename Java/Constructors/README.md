@@ -30,6 +30,7 @@ Employee emp = Employee.getInstance();
 
 ### new Keyword
 - The `new` keyword in Java is used for creating objects, which are instances of classes.
+- It starts the whole constructor chain reaction. All the constructors in an object’s inheritance tree must run when you make a new object.
 - It plays a key role in allocating memory for the object and initializing it.
 - Memory Allocation:
     - It reserves memory on the heap, where all Java objects reside, to store the object's data.
