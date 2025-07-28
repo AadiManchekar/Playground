@@ -3,6 +3,8 @@ package Recursion1;
 import java.util.HashMap;
 
 // LeetCode: https://leetcode.com/explore/learn/card/recursion-i/255/recursion-memoization/1661/
+// Time Complexity: O(2^n) without memoization, because we are computing the same values multiple times.
+// With memoization, the time complexity is reduced to O(n) as we store previously computed
 public class FibonacciNumber {
     // cache for memoization
     private HashMap<Integer, Integer> cache = new HashMap<>();
