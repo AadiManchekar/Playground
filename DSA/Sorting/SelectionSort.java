@@ -4,6 +4,8 @@ class SelectionSort {
         return nums;
     }
 
+    // Time Complexity: O(n^2)
+    // Space Complexity: O(1)
     private void selectionSort(int[] nums) {
         // assume first element is small, find smallest element and swap with first element
         // increment first;
