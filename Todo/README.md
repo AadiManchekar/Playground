@@ -4,6 +4,10 @@
 - https://medium.com/viascom/enabling-https-in-spring-boot-3-c94095389842
 - https://youtu.be/YPorP8BsF_c?si=ybK88lJiOZkpIQDs
 - https://aaronstuyvenberg.com/posts/does-lambda-have-a-silent-crash
+- https://medium.com/@alameerashraf/the-spectrum-of-failure-models-in-distributed-systems-1951bdb3ce72
+- https://architectelevator.com/cloud/serverless-illusion/
+- https://www.interdb.jp/pg/index.html
+- https://www.anthropic.com/engineering/a-postmortem-of-three-recent-issues
 
 --- 
 
