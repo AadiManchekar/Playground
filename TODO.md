@@ -1,0 +1,2 @@
+- https://google.github.io/styleguide/javaguide.html
+- https://brandur.org/postgres-connections
