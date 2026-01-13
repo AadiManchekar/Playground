@@ -1,2 +1,3 @@
 - https://google.github.io/styleguide/javaguide.html
 - https://brandur.org/postgres-connections
+- https://medium.com/@shivajiofficial5088/sharding-partitioning-and-replication-often-confused-concepts-of-system-design-%EF%B8%8F-e99c523791e8
