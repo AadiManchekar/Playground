@@ -1,0 +1,165 @@
+system-design-journey/
+│
+├── 00-foundations/
+│   ├── computing-basics.md
+│   ├── latency-vs-throughput.md
+│   ├── scalability-vs-performance.md
+│   ├── availability-and-durability.md
+│   └── time-and-ordering.md
+│
+├── 01-networking/
+│   ├── 01-models/
+│   │   ├── osi-model.md
+│   │   └── tcp-ip-model.md
+│   │
+│   ├── 02-protocols/
+│   │   ├── tcp.md
+│   │   ├── udp.md
+│   │   ├── quic.md
+│   │   ├── http-1-1.md
+│   │   ├── http-2.md
+│   │   ├── http-3.md
+│   │   └── grpc.md
+│   │
+│   ├── 03-communication-patterns/
+│   │   ├── request-response.md
+│   │   ├── polling.md
+│   │   ├── long-polling.md
+│   │   ├── server-sent-events.md
+│   │   ├── websockets.md
+│   │   └── streaming.md
+│   │
+│   ├── 04-traffic-management/
+│   │   ├── load-balancing.md
+│   │   ├── retries-and-timeouts.md
+│   │   ├── congestion-control.md
+│   │   └── backpressure.md
+│   │
+│   └── 05-security/
+│       ├── tls.md
+│       ├── authentication.md
+│       └── authorization.md
+│
+├── 02-core-concepts/
+│   ├── 01-distributed-primitives/
+│   │   ├── distributed-log.md
+│   │   ├── state-machines.md
+│   │   ├── leader-election.md
+│   │   └── quorum-systems.md
+│   │
+│   ├── 02-consistency/
+│   │   ├── strong-consistency.md
+│   │   ├── eventual-consistency.md
+│   │   ├── linearizability.md
+│   │   └── causal-consistency.md
+│   │
+│   ├── 03-replication/
+│   │   ├── replication-models.md
+│   │   ├── partitioning.md
+│   │   ├── sharding-strategies.md
+│   │   └── rebalancing.md
+│   │
+│   └── 04-failure-handling/
+│       ├── failure-models.md
+│       ├── idempotency.md
+│       ├── retries.md
+│       └── circuit-breakers.md
+│
+├── 03-data-structures/
+│   ├── 01-trees/
+│   │   ├── btree.md
+│   │   ├── bplus-tree.md
+│   │   ├── lsm-tree.md
+│   │   └── merkle-tree.md
+│   │
+│   ├── 02-hashing/
+│   │   ├── consistent-hashing.md
+│   │   └── rendezvous-hashing.md
+│   │
+│   ├── 03-probabilistic/
+│   │   ├── bloom-filter.md
+│   │   ├── counting-bloom-filter.md
+│   │   └── hyperloglog.md
+│   │
+│   ├── 04-queues/
+│   │   ├── priority-queue.md
+│   │   ├── delay-queue.md
+│   │   └── ring-buffer.md
+│   │
+│   └── 05-graphs/
+│       ├── graph-basics.md
+│       └── dag.md
+│
+├── 04-algorithms/
+│   ├── 01-general/
+│   │   ├── sorting.md
+│   │   ├── searching.md
+│   │   └── hashing-algorithms.md
+│   │
+│   ├── 02-concurrent/
+│   │   ├── locking.md
+│   │   ├── lock-free-algorithms.md
+│   │   └── wait-free-algorithms.md
+│   │
+│   ├── 03-distributed/
+│   │   ├── paxos.md
+│   │   ├── raft.md
+│   │   ├── zab.md
+│   │   └── gossip.md
+│   │
+│   └── 04-streaming/
+│       ├── windowing.md
+│       ├── watermarking.md
+│       └── exactly-once.md
+│
+├── 05-infrastructure-systems/
+│   ├── 01-databases/
+│   │   ├── sql/
+│   │   │   ├── mysql.md
+│   │   │   └── postgres.md
+│   │   │
+│   │   ├── nosql/
+│   │   │   ├── cassandra.md
+│   │   │   └── dynamodb.md
+│   │   │
+│   │   └── columnar/
+│   │       ├── clickhouse.md
+│   │       └── bigquery.md
+│   │
+│   ├── 02-messaging/
+│   │   ├── kafka.md
+│   │   ├── rabbitmq.md
+│   │   └── pulsar.md
+│   │
+│   ├── 03-caching/
+│   │   ├── redis.md
+│   │   └── memcached.md
+│   │
+│   └── 04-coordination/
+│       ├── zookeeper.md
+│       └── etcd.md
+│
+├── 06-building-blocks/
+│   ├── rate-limiter.md
+│   ├── caching-strategies.md
+│   ├── pub-sub.md
+│   ├── distributed-locks.md
+│   ├── id-generation.md
+│   └── leaderboards.md
+│
+├── 07-system-designs/
+│   ├── notification-system.md
+│   ├── feed-system.md
+│   ├── chat-system.md
+│   ├── metrics-system.md
+│   └── logging-system.md
+│
+├── 08-research-papers/
+│   ├── how-to-read-a-paper.md
+│   │
+│   ├── distributed-logs/
+│   ├── consensus/
+│   ├── storage-engines/
+│   └── stream-processing/
+│
+└── README.md
